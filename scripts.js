@@ -8,6 +8,7 @@ function convertValues() {
 
     const dolarToday = 4.9
     const euroToday = 5.3
+    const libraToday = 6.2
 
     if (currencySelect.value == "dolar") {
         currencyValueToConverted.innerHTML = new Intl.NumberFormat("en-US", {
@@ -15,12 +16,22 @@ function convertValues() {
             currency: "USD"
         }).format(inputCurrencyValue / dolarToday)
     }
+
     if (currencySelect.value == "euro") {
         currencyValueToConverted.innerHTML = new Intl.NumberFormat("de-DE", {
             style: "currency",
             currency: "EUR"
         }).format(inputCurrencyValue / euroToday)
     }
+
+    if (currencySelect.value == "libra") {
+        currencyValueToConverted.innerHTML = new Intl.NumberFormat("en-GB", {
+            style: "currency",
+            currency: "GBP"
+        }).format(inputCurrencyValue / libraToday)
+    }
+
+
 
 
 
@@ -33,22 +44,26 @@ function convertValues() {
 }
 
 
+
 function changeCurrency() {
-const currencyName = document.getElementById("currency-name")
-const currencyImage = document.querySelector(".currency-img")
+    const currencyName = document.getElementById("currency-name")
+    const currencyImage = document.querySelector(".currency-img")
 
-if (currencySelect.value == "dolar"){
-    currencyName.innerHTML = "Dólar americano"
-    currencyImage.src = "./assets/logo-euro.png"
-}
+    if (currencySelect.value == "dolar") {
+        currencyName.innerHTML = "Dólar americano"
+        currencyImage.src = "./assets/logo-dolar.png"
+    }
 
-if (currencySelect.value == "euro"){
-    currencyName.innerHTML = "Euro"
-    currencyImage.src = "./assets/logo-euro.png"
-}
+    if (currencySelect.value == "euro") {
+        currencyName.innerHTML = "Euro"
+        currencyImage.src = "./assets/logo-euro.png"
+    }
+        if (currencySelect.value == "libra") {
+            currencyName.innerHTML = "Libra"
+            currencyImage.src = "./assets/logo-libra.png"
+    }
+        convertValues()
+    }
 
-convertValues()
-}
-
-currencySelect.addEventListener("change", changeCurrency)
-convertButton.addEventListener("click", convertValues)
+    currencySelect.addEventListener("change", changeCurrency)
+    convertButton.addEventListener("click", convertValues)
