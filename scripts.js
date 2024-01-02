@@ -47,19 +47,11 @@ function convertValues() {
         }).format(inputCurrencyValue / realToday)
     }
 
-
-
-
-
-
-
     currencyValueToConvert.innerHTML = new Intl.NumberFormat("pt-BR", {
         style: "currency",
         currency: "BRL"
     }).format(inputCurrencyValue)
 }
-
-
 
 function changeCurrency() {
     const currencyName = document.getElementById("currency-name")
@@ -74,22 +66,22 @@ function changeCurrency() {
         currencyName.innerHTML = "Euro"
         currencyImage.src = "./assets/logo-euro.png"
     }
-        if (currencySelect.value == "libra") {
-            currencyName.innerHTML = "Libra"
-            currencyImage.src = "./assets/logo-libra.png"
+    if (currencySelect.value == "libra") {
+        currencyName.innerHTML = "Libra"
+        currencyImage.src = "./assets/logo-libra.png"
     }
     if (currencySelect.value == "bitcoin") {
         currencyName.innerHTML = "BitCoin"
         currencyImage.src = "./assets/logo-bitcoin.png"
     }
 
-if (currencySelect.value == "real") {
-    currencyName.innerHTML = "Real brasileiro"
-    currencyImage.src = "./assets/logo-real.png"
+    if (currencySelect.value == "real") {
+        currencyName.innerHTML = "Real Brasileiro"
+        currencyImage.src = "./assets/logo-real.png"
+    }
+
+    convertValues()
 }
 
-        convertValues()
-}
-
-    currencySelect.addEventListener("change", changeCurrency)
-    convertButton.addEventListener("click", convertValues)
+currencySelect.addEventListener("change", changeCurrency)
+convertButton.addEventListener("click", convertValues)
